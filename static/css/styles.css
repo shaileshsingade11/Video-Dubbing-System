@@ -1,0 +1,100 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 100px;
+    padding: 0; 
+    background-image: url('./flag.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+
+h1 {
+    color: #333;
+}
+h3 {
+    padding-left: 50px;
+    color: #333;
+}
+
+p{
+    padding-left: 100px;
+    color: #333;
+}
+
+/* Container for the forms */
+.forms-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    text-align: center; 
+}
+
+/* Styles for each form */
+.form-container {
+    width: 48%; 
+    height: 275px;
+    background-color: rgba(0, 0, 0, 0.35);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input[type="file"],
+select,
+input[type="submit"],
+button {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    width: 60%;
+    margin: 0 auto; 
+    border: 2px solid #0c1e93;
+    border-radius: 5px;
+}
+
+input[type="submit"],
+button {
+    background: linear-gradient(to right, #4e3de4, #071255);
+    color: #fff;
+    width: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background: linear-gradient(to left, #4e3de4, #4e3de4);
+
+}
+
+
+
+/* Message styles */
+p {
+    color: #00511f;
+    margin: 10px 0;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #333;
+}
+
+audio {
+    width: 100%;
+}
+
+select {
+    padding: 8px;
+}

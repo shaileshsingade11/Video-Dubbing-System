@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload and Text Translation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Bharat Bhasha</h1>
+
+    <p> Step. 1 Upload video to be dubbed.<br>
+        Step. 2 Choose language and voice as required.<br>
+        Step. 3 Download dubbed video.</p>
+    
+    <div class="forms-container">
+        <div class="form-container">
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <h2>Upload Your File</h2>
+                <input type="file" name="file">
+                <br><br>
+                <input type="submit" value="Upload">
+            </form>
+            {% if message %}
+                <p style="color: {{ color }}">{{ message }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Text Translation Form -->
+        <div class="form-container">
+            <form action="/translate" method="post">
+                <h2>Translate Text</h2>
+                <label for="language">Target Language:</label>
+                <select name="language" id="language">
+                    <option value="hi">Hindi</option>
+                    <option value="mr">Marathi</option>
+                    <option value="gu">Gujrati</option>
+                </select>
+                <label for="voice">Voice:</label>
+                <select name="voice" id="voice">
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                </select>
+                <br><br>
+                <input type="submit" value="Translate">
+            </form>
+            {% if translated_text %}
+                <h2>Translated Text:</h2>
+                <p>{{ translated_text }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <h3>Download Dubbed Video</h3>
+    {% if file_exists %}
+        <form action="/download" method="get">
+            <button class="downloadButton" type="submit">Download</button>
+        </form>
+    {% else %}
+        <button type="button" disabled>Download</button>
+    {% endif %}
+
+    <!-- Display Translated Audio -->
+    {% if audio_file %}
+        <h2>Translated Audio:</h2>
+        <audio controls>
+            <source src="{{ audio_file }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    {% endif %}
+</body>
+</html>
